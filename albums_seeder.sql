@@ -1,5 +1,7 @@
 use codeup_test_db;
 
+truncate table albums;
+
 insert into albums (artist,
 name,
 release_date,
