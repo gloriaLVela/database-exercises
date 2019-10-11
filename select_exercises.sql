@@ -11,9 +11,9 @@ use codeup_test_db;
 
 select * from albums;
 
-select * from albums where artist = 'Pink Floyd';
-Select release_date, name from albums where name like "%Sgt. Pepper's Lonely Hearts Club Band%";
-select genre, name from albums where name like '%Nevermind%';
-select name, release_date from albums where release_date >= 1990;
-select name, sales from albums where sales < 20.00;
-select name, 'rock' selected_genre from albums where genre like '%rock%';
+select name AS 'Albums by Pink Floyd'  from albums where artist = 'Pink Floyd';
+Select release_date  AS 'Sgt. Pepper''s Lonely Hearts Club Band' from albums where name like "%Sgt. Pepper's Lonely Hearts Club Band%";
+select genre AS 'genre for Nevermind' from albums where name like '%Nevermind%';
+select Name as 'released in the 1990' from albums where release_date between  1990 and 1999;
+select name as 'records sales below 20' from albums where sales < 20.00;
+select name as 'Records rock'  from albums where genre like '%rock%';
