@@ -3,7 +3,7 @@
 -- Find all employees with first names 'Irena', 'Vidya', or 'Maya' — 709 rows (Hint: Use IN).
 
 select * from employees.employees
-where first_name IN ( 'Irena', 'Vidya') or first_name = 'Maya';
+where first_name IN ( 'Irena', 'Vidya', 'Maya');
 
 
 --
@@ -14,12 +14,12 @@ where last_name like 'E%';
 --
 -- Find all employees hired in the 90s — 135,214 rows.
 select * from employees.employees
-where hire_date like '199%-%-%';
+where hire_date like '199%';
 
 --
 -- Find all employees born on Christmas — 842 rows.
 select * from employees.employees
-where birth_date like '%-12-25';
+where birth_date like '%12-25';
 
 -- Find all employees with a 'q' in their last name — 1,873 rows.
 select * from employees.employees
@@ -50,7 +50,7 @@ where last_name like 'E%E';
 
 # Find all employees hired in the 90s and born on Christmas — 362 rows.
 select * from employees.employees
-where hire_date like '199%-%-%'
+where hire_date like '199%'
 and birth_date like '%-12-25';
 
 
