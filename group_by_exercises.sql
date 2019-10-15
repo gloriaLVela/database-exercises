@@ -77,7 +77,8 @@ select last_name, count(*)
 from employees
 where last_name like '%q%'
   and last_name not like '%qu%'
-group by last_name;
+group by last_name
+order by count(*);
 
 /**
 
