@@ -17,25 +17,25 @@
 
 
 
---===========================================================================================
+#--===========================================================================================
 
 
 -- Find all employees with first names 'Irena', 'Vidya', or 'Maya' — 709 rows (Hint: Use IN).
 -- Modify your first query to order by first name. The first result should be Irena Reutenauer and the last result should be Vidya Simmen.
 select * from employees.employees
-where first_name IN ( 'Irena', 'Vidya') or first_name = 'Maya'
+where first_name IN ( 'Irena', 'Vidya',  'Maya')
 order by first_name;
 
 -- Find all employees with first names 'Irena', 'Vidya', or 'Maya' — 709 rows (Hint: Use IN).
 -- Update the query to order by first name and then last name. The first result should now be Irena Acton and the last should be Vidya Zweizig.
 select * from employees.employees
-where first_name IN ( 'Irena', 'Vidya') or first_name = 'Maya'
+where first_name IN ( 'Irena', 'Vidya', 'Maya')
 order by first_name, last_name;
 
 -- Find all employees with first names 'Irena', 'Vidya', or 'Maya' — 709 rows (Hint: Use IN).
 -- Change the order by clause so that you order by last name before first name. Your first result should still be Irena Acton but now the last result should be Maya Zyda.
 select * from employees.employees
-where first_name IN ( 'Irena', 'Vidya') or first_name = 'Maya'
+where first_name IN ( 'Irena', 'Vidya',  'Maya')
 order by last_name, first_name;
 
 
@@ -45,6 +45,11 @@ order by last_name, first_name;
 select * from employees.employees
 where last_name like 'E%'
 order by emp_no;
+
+
+select * from employees.employees
+where last_name like 'E%'
+order by emp_no desc;
 
 --
 -- Find all employees hired in the 90s — 135,214 rows.
@@ -61,7 +66,7 @@ select * from employees.employees
 where last_name like '%q%';
 
 
---=================================================================
+#=================================================================
 # Update your query for 'Irena', 'Vidya', or 'Maya' to use OR instead of IN — 709 rows.
 select * from employees.employees
 where first_name ='Irena' or first_name = 'Vidya' or first_name = 'Maya';
@@ -88,10 +93,15 @@ where last_name like 'E%E';
 select * from employees.employees
 where hire_date like '199%-%-%'
 and birth_date like '%-12-25'
-order by birth_date desc, hire_date asc;
+order by birth_date, hire_date desc;
 
 
 # Find all employees with a 'q' in their last name but not 'qu' — 547 rows.
 select * from employees.employees
 where last_name like '%q%'
 and last_name not like '%qu%';
+
+
+select distinct birth_date
+from employees
+order by birth_date asc;
