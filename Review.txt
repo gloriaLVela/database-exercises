@@ -1,0 +1,27 @@
+MySQL is a Relational Database Management System, or RDBMS. This means it stores data in tables and creates relationships between the data in the different tables.
+
+We use the Structured Query Language (SQL) to interact with MySQL. SQL is made up of statements and commands sent to the server individually, with results sent back to the client.
+
+
+These are the commands that create and define structures within MySQL.
+Data Definition Language (DDL)
+Data Control Language (DCL) commands.
+
+Later, we will get into Data Manipulation Language (DML) and Data Query Language (DQL).
+
+Check the status of the server
+mysql.server status
+
+Start the server
+mysql.server start
+
+
+MySQL server understands Structured Query Language (SQL) commands, stores and organizes the data on disk, and users that can connect and manipulate the data.
+
+MySQL client that connects to the server for us, sends our commands to the server, and displays the data on screen.
+
+This instructs the MySQL client to connect to the MySQL server using the specified user, and a password. After successfully logging in, we should be greeted by the server:
+
+We can connect to the MySQL server with the following command:
+mysql -u USERNAME -p
+
