@@ -24,13 +24,13 @@ use employees;
 # Human Resources | Karsetn Sigstam
 # Research        | Hilary Kambil
 
-select dept.dept_name, concat(emp.first_name, ' ', emp.last_name) Manager_Name
+select dept.dept_name as 'Department Name', concat(emp.first_name, ' ', emp.last_name) 'Manager Name'
 from employees emp
          join dept_manager de_emp  on emp.emp_no = de_emp.emp_no
          join departments dept on de_emp.dept_no = dept.dept_no
 where emp.gender = 'F'
   and de_emp.to_date >= now()
-group by dept.dept_name, Manager_Name;
+order by dept.dept_name;
 
 
 # Find the current titles of employees currently working in the Customer Service department.
@@ -46,7 +46,7 @@ group by dept.dept_name, Manager_Name;
 # Staff              |  3574
 # Technique Leader   |   241
 
-select  titles.title, count(*)
+select  titles.title as Title, count(*) as Count
 from employees emp
 join titles on emp.emp_no = titles.emp_no
 join dept_emp de on de.emp_no = emp.emp_no
@@ -70,7 +70,8 @@ group by titles.title;
 # Research           | Hilary Kambil     |  79393
 # Sales              | Hauke Zhang       | 101987
 
-select departments.dept_name , concat(emp.first_name, ' ', emp.last_name) as name, sal.salary
+select departments.dept_name as 'Department Name',
+       concat(emp.first_name, ' ', emp.last_name) as Name, sal.salary as Salary
 from employees emp
 join dept_manager mgr
 on emp.emp_no = mgr.emp_no
@@ -79,7 +80,7 @@ on emp.emp_no = mgr.emp_no
 join salaries sal
 on emp.emp_no = sal.emp_no
 where sal.to_date > NOW()
-  and de.to_date > NOW()
+#   and de.to_date > NOW()
 and mgr.to_date > NOW()
 order by departments.dept_name;
 
@@ -94,14 +95,16 @@ order by departments.dept_name;
 #     --------------|------------------|-----------------
 #      Huan Lortz   | Customer Service | Yuchang Weedman
 
-select concat(emp.first_name, ' ', emp.last_name) name,  d.dept_name, (Select concat(emp2.first_name, ' ', emp2.last_name) from employees emp2
+select concat(emp.first_name, ' ', emp.last_name) as 'Employee Name',  d.dept_name as 'Department Name',
+       (Select concat(emp2.first_name, ' ', emp2.last_name)
+from employees emp2
     join dept_manager dm on emp2.emp_no = dm.emp_no
     where dm.dept_no = de.dept_no
-    and dm.to_date > NOW())
+    and dm.to_date > NOW()) as 'Manager Name'
 from employees emp
 join dept_emp de on de.emp_no = emp.emp_no
 join departments d on de.dept_no = d.dept_no
 where de.to_date > NOW()
 # and emp.first_name = 'Huan'
 # and d.dept_name = 'Customer Service'
-order by name;
+order by emp.emp_no;
