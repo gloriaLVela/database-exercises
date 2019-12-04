@@ -101,7 +101,6 @@ select * from employees.employees
 where last_name like '%q%'
 and last_name not like '%qu%';
 
-
 select distinct birth_date
 from employees
 order by birth_date asc;
@@ -109,7 +108,7 @@ order by birth_date asc;
 -- Copy the order_by_exercises.sql script and save it as functions_exercises.sql.
 --
 -- Update your queries for employees whose names start and end with 'E'. Use concat() to combine their first and last name together as a single column in your results.
---
+-- test
 
 select CONCAT_WS(' - ', first_name, last_name) from employees.employees
 where last_name like 'E%'
